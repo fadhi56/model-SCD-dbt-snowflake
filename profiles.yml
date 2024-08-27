@@ -1,0 +1,13 @@
+is_code_challenge:
+  outputs:
+    dev:
+      account: "{{ env_var('ACCOUNT_SNOWFLAKE') }}"
+      database: test_is
+      password: "{{ env_var('PASSWORD_SNOWFLAKE') }}"
+      role: accountadmin
+      schema: dwh
+      threads: 1
+      type: snowflake
+      user: "{{ env_var('USER_SNOWFLAKE') }}"
+      warehouse: testing
+  target: dev

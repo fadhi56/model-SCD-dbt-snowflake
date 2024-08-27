@@ -1,0 +1,26 @@
+sources:
+  - name: bronze_order
+    schema: bronze_order
+    description: Raw data loaded from the csv containing order data - fact table
+            
+    tables:
+      - name: raw_order
+        columns:
+          - name: order_id
+            data_type: varchar
+          - name: order_date
+            data_type: date
+          - name: number_articles
+            data_type: number
+          - name: customer_id
+            data_type: number
+          - name: order_status
+            data_type: varchar
+          - name: product_id
+            data_type: number
+          - name: sale_percentage
+            data_type: float
+          - name: sale_price
+            data_type: float
+          - name: coupon_value
+            data_type: float

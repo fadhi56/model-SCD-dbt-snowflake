@@ -1,0 +1,68 @@
+models:
+  - name: dim_product
+    description: "The table contains the silver layer of dimension product"
+    config:
+      contract:
+        enforced: true
+
+    data_tests:
+      - duplicate_rows:
+          config:
+            severity: error
+            error_if: ">1"
+      - unique:
+          column_name: "product_id || '#' || product_name || '#' || brand"
+
+    columns:
+      - name: product_id
+        data_type: number
+        description: " "
+        data_tests:
+          - unique: 
+              config: 
+                where: "status = 'active'"   
+                severity: warn
+          - not_null
+
+      - name: product_name
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+          - unique
+
+      - name: brand
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: rrp
+        data_type: number
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: currency
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: product_category
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: product_main_category
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: status
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null  

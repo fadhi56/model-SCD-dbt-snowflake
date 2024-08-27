@@ -1,0 +1,180 @@
+models:
+  - name: denormalized_product_customer_order
+    description: "flattened dataset from joining product, order and customer table"
+    config:
+      contract:
+        enforced: true
+
+    data_tests:
+      - duplicate_rows:
+          config:
+            severity: warn
+            warn_if: ">1"
+
+    columns:
+      - name: customer_id
+        data_type: number
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: customer_name
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: gender
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: birth_date
+        data_type: date
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: email_address
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: country
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: zip_code
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: street
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: street_number
+        data_type: number
+        description: " "
+        data_tests:
+          - not_null    
+
+      - name: status
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null  
+
+      - name: product_id
+        data_type: number
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: product_name
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: brand
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: rrp
+        data_type: number
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: currency
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: product_category
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: product_main_category
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: status
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null  
+          
+    columns:
+      - name: order_id
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: customer_id
+        data_type: number
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: product_id
+        data_type: number
+        description: " "
+        data_tests:
+          - not_null
+        data_tests:
+          - not_null
+
+      - name: order_date
+        data_type: date
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: number_articles
+        data_type: number
+        description: " "
+        data_tests:
+          - not_null
+
+
+      - name: order_status
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: sale_price
+        data_type: float
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: sale_percentage
+        data_type: float
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: coupon_value
+        data_type: float
+        description: " "
+        data_tests:
+          - not_null    
+                

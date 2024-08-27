@@ -1,0 +1,22 @@
+sources:
+  - name: bronze_product
+    schema: bronze_product
+    description: Raw data loaded from the csv containing product dimension
+            
+    tables:
+      - name: raw_product
+        columns:
+          - name: product_id
+            data_type: number
+          - name: product_name
+            data_type: varchar
+          - name: brand
+            data_type: varchar
+          - name: rrp
+            data_type: number
+          - name: currency
+            data_type: varchar
+          - name: product_category
+            data_type: varchar
+          - name: product_main_category
+            data_type: varchar

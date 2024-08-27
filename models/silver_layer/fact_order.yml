@@ -1,0 +1,90 @@
+models:
+  - name: fact_order
+    description: "The table contains the silver layer of fact table order"
+    config:
+      contract:
+        enforced: true
+
+    data_tests:
+      - duplicate_rows:
+          config:
+            severity: error
+            error_if: ">1"
+
+      - equal_rowcount:
+          compare_model: source('bronze_order', 'raw_order')
+          config:
+            severity: error
+            error_if: ">1"
+
+      - unique:
+          column_name: "product_id || '#' || order_id || '#' || customer_id || '#' || order_date || '#' || number_articles"
+
+    columns:
+      - name: order_id
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: customer_id
+        data_type: number
+        description: " "
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customer')
+              field: customer_id
+
+      - name: product_id
+        data_type: number
+        description: " "
+        data_tests:
+          - not_null
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_product')
+              field: product_id
+
+      - name: order_date
+        data_type: date
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: number_articles
+        data_type: number
+        description: " "
+        data_tests:
+          - not_null
+
+
+      - name: order_status
+        data_type: varchar
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: sale_price
+        data_type: float
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: sale_percentage
+        data_type: float
+        description: " "
+        data_tests:
+          - not_null
+
+      - name: coupon_value
+        data_type: float
+        description: " "
+        data_tests:
+          - not_null    
+
+
+
+          
+                
