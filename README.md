@@ -1,6 +1,5 @@
 ### Project Info
-The project is centered around modeling slowly changing dimesnion, particularly SCD2 which is the defacto for SCD when they need to be considered 
-for the dimesnional modeling in data warehousing. 
+The project is centered around modeling slowly changing dimesnion, particularly SCD2 which is the defacto for SCD in data warehousing. 
 
 ## Data Layers
 I am using the conventional medallion architecture (Bronze-silver-gold) to model the different layer of refinements. 
